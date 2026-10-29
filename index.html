@@ -133,5 +133,103 @@
     <p>© 2026 Amazonian Herbal Remedies</p>
     <p>Botanical heritage, thoughtfully shared.</p>
   </footer>
+
+  <section id="order" style="padding: 25px 18px; text-align: center;">
+    <h2>Place Your Order</h2>
+    <p>Order your favourite botanical products from Amazonian Herbal Remedies.</p>
+
+    <form id="orderForm" style="max-width: 500px; margin: auto;">
+      <p>
+        <label for="customerName">Full name</label><br>
+        <input id="customerName" name="customerName" type="text" required placeholder="Enter your full name">
+      </p>
+
+      <p>
+        <label for="customerEmail">Email address</label><br>
+        <input id="customerEmail" name="customerEmail" type="email" required placeholder="Enter your email">
+      </p>
+
+      <p>
+        <label for="customerPhone">Phone or WhatsApp number</label><br>
+        <input id="customerPhone" name="customerPhone" type="tel" required placeholder="Include country code">
+      </p>
+
+      <p>
+        <label for="customerAddress">Delivery address and country</label><br>
+        <textarea id="customerAddress" name="customerAddress" required placeholder="Enter your full delivery address"></textarea>
+      </p>
+
+      <p>
+        <label for="orderItems">Products, package sizes and quantities</label><br>
+        <textarea id="orderItems" name="orderItems" required placeholder="List the herbs, sizes and quantities you want"></textarea>
+      </p>
+
+      <p>
+        <label for="paymentMethod">Preferred payment method</label><br>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="">Choose a payment method</option>
+          <option>Bank transfer</option>
+          <option>Mobile payment</option>
+          <option>Online card payment - details to be confirmed</option>
+          <option>Cash on delivery - local orders only</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="extraNotes">Additional notes</label><br>
+        <textarea id="extraNotes" name="extraNotes" placeholder="Any special requests?"></textarea>
+      </p>
+
+      <button type="button" onclick="sendWhatsAppOrder()">Send order through WhatsApp</button>
+      <br><br>
+      <button type="button" onclick="sendEmailOrder()">Send order through email</button>
+    </form>
+  </section>
+
+  <script>
+    function getOrderMessage() {
+      const form = document.getElementById('orderForm');
+      if (!form.reportValidity()) return null;
+
+      const data = new FormData(form);
+      const fields = [
+        ['Customer name', 'customerName'],
+        ['Customer email', 'customerEmail'],
+        ['Customer phone', 'customerPhone'],
+        ['Delivery address', 'customerAddress'],
+        ['Products and quantities', 'orderItems'],
+        ['Preferred payment', 'paymentMethod'],
+        ['Additional notes', 'extraNotes']
+      ];
+
+      return 'NEW AMAZONIAN HERBAL REMEDIES ORDER\n\n' +
+        fields.map(([label, key]) =>
+          label + ': ' + (data.get(key) || 'None')
+        ).join('\n');
+    }
+
+    function sendWhatsAppOrder() {
+      const message = getOrderMessage();
+      if (!message) return;
+
+      const url = 'https://wa.me/5927109904?text=' +
+        encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
+
+    function sendEmailOrder() {
+      const message = getOrderMessage();
+      if (!message) return;
+
+      const subject = encodeURIComponent(
+        'New Website Order - Amazonian Herbal Remedies'
+      );
+      const body = encodeURIComponent(message);
+      window.location.href =
+        'mailto:Robyncraig3393@gmail.com?subject=' +
+        subject + '&body=' + body;
+    }
+  </script>
+
 </body>
 </html>
