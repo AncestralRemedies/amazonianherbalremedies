@@ -5,76 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amazonian Herbal Remedies</title>
-
-/* SEARCH AND SHOPPING CART */
-
-.search-cart-bar {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.store-search {
-  flex: 1;
-  min-width: 200px;
-  max-width: 500px;
-  padding: 13px 16px;
-  border: 1px solid #C6A96B;
-  border-radius: 25px;
-  background: #FFFFFF;
-  font-size: 15px;
-  color: #183D2B;
-}
-
-.cart-button {
-  background: #183D2B;
-  color: #FAF7F0;
-  border: 1px solid #C6A96B;
-  border-radius: 25px;
-  padding: 12px 22px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.cart-panel {
-  display: none;
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 24px;
-  background: #FFFFFF;
-  border: 1px solid #C6A96B;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(24,61,43,0.08);
-}
-
-.cart-panel.active {
-  display: block;
-}
-
-.cart-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #E8E0D2;
-}
-
-.cart-panel button {
-  cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  .search-cart-bar {
-    padding: 12px;
-  }
-
-  .store-search {
-    min-width: 100%;
-  }
-
-  <style>
+ <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -320,6 +251,76 @@ form button {
   font-size: 14px;
   margin-top: 28px;
 }
+
+/* SEARCH AND SHOPPING CART */
+
+.search-cart-bar {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.store-search {
+  flex: 1;
+  min-width: 200px;
+  max-width: 500px;
+  padding: 13px 16px;
+  border: 1px solid #C6A96B;
+  border-radius: 25px;
+  background: #FFFFFF;
+  font-size: 15px;
+  color: #183D2B;
+}
+
+.cart-button {
+  background: #183D2B;
+  color: #FAF7F0;
+  border: 1px solid #C6A96B;
+  border-radius: 25px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.cart-panel {
+  display: none;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #C6A96B;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(24,61,43,0.08);
+}
+
+.cart-panel.active {
+  display: block;
+}
+
+.cart-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #E8E0D2;
+}
+
+.cart-panel button {
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .search-cart-bar {
+    padding: 12px;
+  }
+
+  .store-search {
+    min-width: 100%;
+  }
+}
+
 </style>
 </head>
 <body>
