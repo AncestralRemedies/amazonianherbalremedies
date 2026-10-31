@@ -509,7 +509,8 @@ form button {
 
 // AMAZONIAN HERBAL REMEDIES SHOPPING CART
 
-let shoppingCart = [];
+const CART_KEY = 'amazonianHerbalCart';
+let shoppingCart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
 
 function toggleCart() {
   document.getElementById('cartPanel').classList.toggle('active');
@@ -535,6 +536,7 @@ function addToCart(name, price, size = '') {
 }
 
 function renderCart() {
+  localStorage.setItem(CART_KEY, JSON.stringify(shoppingCart));
   const cartItems = document.getElementById('cartItems');
   const cartCount = document.getElementById('cartCount');
   const totalDisplay = document.querySelector('#cartPanel strong');
