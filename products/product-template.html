@@ -346,7 +346,8 @@
   let quantity = 1;
 
   const productName = 'Product Name';
-  const productPrice = 0.00;
+const productPrice = 0.00;
+const productSize = 'Package size';
 
   function saveCart() {
     localStorage.setItem(CART_KEY, JSON.stringify(shoppingCart));
@@ -364,17 +365,18 @@
     }
 
     const existingItem = shoppingCart.find(
-      item => item.name === productName
-    );
+  item => item.name === productName && item.size === productSize
+);
 
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
       shoppingCart.push({
-        name: productName,
-        price: productPrice,
-        quantity: quantity
-      });
+  name: productName,
+  price: productPrice,
+  size: productSize,
+  quantity: quantity
+});
     }
 
     saveCart();
