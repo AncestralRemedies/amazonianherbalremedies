@@ -645,6 +645,14 @@ document.getElementById('productSearch').addEventListener(
 );
 
 renderCart();
+// RECEIVE PRODUCT PAGE ORDER DETAILS
+
+const pendingOrder = sessionStorage.getItem('amazonianHerbalCheckout');
+
+if (pendingOrder) {
+  document.getElementById('orderItems').value = pendingOrder;
+  sessionStorage.removeItem('amazonianHerbalCheckout');
+}
 
     function getOrderMessage() {
       const form = document.getElementById('orderForm');
