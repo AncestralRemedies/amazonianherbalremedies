@@ -422,14 +422,21 @@ const productSize = 'Package size';
   }
 
   function goToCheckout() {
-    if (shoppingCart.length === 0) {
-      alert('Your shopping cart is empty.');
-      return;
-    }
-
-    saveCart();
-    window.location.href = '../index.html#order';
+  if (shoppingCart.length === 0) {
+    alert('Your shopping cart is empty.');
+    return;
   }
+
+  const orderDetails = shoppingCart.map(item =>
+    item.name +
+    (item.size ? ' (' + item.size + ')' : '') +
+    ' - Quantity: ' + item.quantity +
+    ' - Price: $' + Number(item.price).toFixed(2)
+  ).join('\n');
+
+  sessionStorage.setItem('amazonianHerbalCheckout', orderDetails);
+  window.location.href = '../index.html#order';
+}
 
   renderCart();
 </script>
