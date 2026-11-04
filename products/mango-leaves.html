@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mango Leaves | Amazonian Herbal Remedies</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #FAF7F0;
+      color: #625F55;
+      font-family: 'Lato', sans-serif;
+    }
+
+    header {
+      background: #465746;
+      color: #E5D3A7;
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      background: #465746;
+      text-align: center;
+      padding: 0 10px 16px;
+    }
+
+    nav a {
+      color: #F5EBD5;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 13px;
+    }
+
+    .cart-button {
+      display: block;
+      margin: 16px auto 0;
+      padding: 9px 18px;
+      background: #C6A96B;
+      color: #263729;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      color: #71836B;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      margin-top: 25px;
+      align-items: start;
+    }
+
+    .product-image {
+      background: #F0EDE4;
+      border-radius: 6px;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+    }
+
+    h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: #465746;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin: 0 0 5px;
+    }
+
+    .botanical-name {
+      font-style: italic;
+      color: #71836B;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .price {
+      color: #465746;
+      font-size: 23px;
+      font-weight: 600;
+      margin: 20px 0 5px;
+    }
+
+    .local-price {
+      color: #71836B;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .package {
+      font-size: 14px;
+      margin: 15px 0;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .quantity button {
+      width: 35px;
+      height: 35px;
+      background: #E8E4D8;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .quantity span {
+      font-size: 18px;
+    }
+
+    .add-button {
+      background: #465746;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      width: 100%;
+      font-size: 14px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .cart-panel {
+      display: none;
+      background: white;
+      border: 1px solid #D8D1C2;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .cart-panel button {
+      cursor: pointer;
+    }
+
+    .checkout-button {
+      background: #465746;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .information {
+      margin-top: 45px;
+      border-top: 1px solid #DDD5C6;
+      padding-top: 20px;
+      line-height: 1.8;
+    }
+
+    .information h3 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .disclaimer {
+      background: #F0EDE4;
+      border-left: 3px solid #C6A96B;
+      padding: 15px;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 25px;
+    }
+
+    footer {
+      background: #465746;
+      color: #E5D3A7;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .product-image {
+        min-height: 250px;
+      }
+
+      h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Amazonian Herbal Remedies</h1>
+  <p>Nature’s Heritage. Rooted in Tradition.</p>
+</header>
+
+<nav>
+  <a href="../index.html">Home</a>
+  <a href="../dried-herbs.html">Dried Herbs</a>
+  <button class="cart-button" onclick="toggleCart()">
+    My Cart (<span id="cartCount">0</span>)
+  </button>
+</nav>
+
+<main class="container">
+
+  <a class="back-link" href="../dried-herbs.html">
+    ← Back to Dried Herbs
+  </a>
+
+  <div class="product-layout">
+
+    <div class="product-image">
+      <img src="../images/mango-leaves.png"
+           alt="Mango leaves"
+           onerror="this.style.display='none'">
+    </div>
+
+    <div>
+      <h2>Mango Leaves</h2>
+      <div class="botanical-name">Mangifera indica</div>
+
+      <div class="description">
+        <p>
+          Mango leaves come from the mango tree
+          (Mangifera indica), a familiar and treasured
+          tropical tree found throughout Guyana and
+          the wider Caribbean region.
+        </p>
+
+        <p>
+          Valued in traditional botanical practices,
+          mango leaves form part of the heritage of
+          communities that have maintained a close
+          relationship with nature and its plant resources.
+        </p>
+
+        <p>
+          Our dried mango leaves celebrate this
+          botanical heritage and invite customers to
+          explore a traditional tropical plant.
+        </p>
+      </div>
+
+      <div class="package">
+        <strong>Package size:</strong> 8 oz (½ pound)
+      </div>
+
+      <div class="price">US$14.00</div>
+      <div class="local-price">GYD $3,000</div>
+
+      <div class="quantity">
+        <strong>Quantity:</strong>
+        <button onclick="changeQuantity(-1)">−</button>
+        <span id="quantity">1</span>
+        <button onclick="changeQuantity(1)">+</button>
+      </div>
+
+      <button class="add-button" onclick="addToCart()">
+        ADD TO CART
+      </button>
+
+      <div id="cartPanel" class="cart-panel">
+        <h3>Your Shopping Cart</h3>
+        <div id="cartItems"></div>
+        <p id="cartTotal"></p>
+        <button class="checkout-button" onclick="goToCheckout()">
+          PROCEED TO ORDER FORM
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="information">
+    <h3>Traditional Heritage</h3>
+    <p>
+      Mango leaves have a history of traditional use
+      in South Asian, Caribbean and other tropical
+      cultures. Customs and practices vary between
+      communities and generations.
+    </p>
+
+    <h3>Product Details</h3>
+    <p>
+      Botanical name: Mangifera indica<br>
+      Product form: Dried leaves<br>
+      Package size: 8 oz (½ pound)
+    </p>
+
+    <div class="disclaimer">
+      <strong>Important Disclaimer:</strong>
+      Traditional use does not establish safety or
+      effectiveness. This product is not a substitute
+      for medical care. Pregnant or breastfeeding
+      individuals should consult a healthcare
+      professional before use.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Amazonian Herbal Remedies<br>
+  Botanical heritage, thoughtfully shared.
+</footer>
+
+<script>
+  const CART_KEY = 'amazonianHerbalCart';
+
+  let shoppingCart = JSON.parse(
+    localStorage.getItem(CART_KEY) || '[]'
+  );
+
+  let quantity = 1;
+
+  const productName = 'Mango Leaves';
+  const productPrice = 14.00;
+  const productSize = '8 oz (½ pound)';
+
+  function saveCart() {
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify(shoppingCart)
+    );
+  }
+
+  function changeQuantity(amount) {
+    quantity = Math.max(1, quantity + amount);
+    document.getElementById('quantity').textContent = quantity;
+  }
+
+  function updateCartCount() {
+    const count = shoppingCart.reduce(
+      (total, item) => total + item.quantity, 0
+    );
+
+    document.getElementById('cartCount').textContent = count;
+  }
+
+  function renderCart() {
+    updateCartCount();
+
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+
+    cartItems.innerHTML = '';
+
+    if (shoppingCart.length === 0) {
+      cartItems.textContent = 'Your cart is empty.';
+      cartTotal.textContent = '';
+      return;
+    }
+
+    let total = 0;
+
+    shoppingCart.forEach(item => {
+      const subtotal = Number(item.price) * item.quantity;
+      total += subtotal;
+
+      const line = document.createElement('p');
+      line.textContent =
+        item.name + ' (' + item.size + ') × ' +
+        item.quantity + ' — US$' + subtotal.toFixed(2);
+
+      cartItems.appendChild(line);
+    });
+
+    cartTotal.textContent = 'Total: US$' + total.toFixed(2);
+  }
+
+  function addToCart() {
+    const existingItem = shoppingCart.find(
+      item => item.name === productName &&
+              item.size === productSize
+    );
+
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      shoppingCart.push({
+        name: productName,
+        price: productPrice,
+        size: productSize,
+        quantity: quantity
+      });
+    }
+
+    saveCart();
+    renderCart();
+
+    document.getElementById('cartPanel').style.display = 'block';
+    quantity = 1;
+    document.getElementById('quantity').textContent = quantity;
+  }
+
+  function toggleCart() {
+    const panel = document.getElementById('cartPanel');
+
+    panel.style.display =
+      panel.style.display === 'block' ? 'none' : 'block';
+
+    renderCart();
+  }
+
+  function goToCheckout() {
+    if (shoppingCart.length === 0) {
+      alert('Your shopping cart is empty.');
+      return;
+    }
+
+    const orderDetails = shoppingCart.map(item =>
+      item.name +
+      (item.size ? ' (' + item.size + ')' : '') +
+      ' - Quantity: ' + item.quantity +
+      ' - Price: $' + Number(item.price).toFixed(2)
+    ).join('\n');
+
+    sessionStorage.setItem(
+      'amazonianHerbalCheckout',
+      orderDetails
+    );
+
+    window.location.href = '../index.html#order';
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>
