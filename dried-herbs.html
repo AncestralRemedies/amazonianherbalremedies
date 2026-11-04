@@ -239,15 +239,39 @@
     <section id="driedHerbProducts">
       <h2 style="text-align: center;">Our Dried Herbs Collection</h2>
 
-      <div class="products">
+      
+<div class="products">
 
-        <div class="product">
-          <div class="product-placeholder">🌿</div>
-          <h3>Our Dried Herbs</h3>
-          <p>Our botanical collection will be featured here soon.</p>
-        </div>
+  <div class="product">
+    <h3>Mango Leaves</h3>
 
-      </div>
+    <p><em>Mangifera indica</em></p>
+
+    <p>
+      Carefully prepared mango leaves, inspired by
+      traditional botanical knowledge and the rich
+      plant heritage of Guyana and the Amazon.
+    </p>
+
+    <p><strong>Package Size:</strong> 8 oz (½ pound)</p>
+
+    <p><strong>Price:</strong> US$14</p>
+    <p><strong>Guyana Price:</strong> GYD $3,000</p>
+
+    <p style="font-size: 13px; color: #625F55;">
+      Not recommended during pregnancy or breastfeeding.
+      Please consult a qualified healthcare professional
+      before use.
+    </p>
+
+    <button class="button"
+      onclick="addToCart('Mango Leaves', 14)">
+      Add to Cart
+    </button>
+  </div>
+
+</div>
+
     </section>
 
     <section class="about-note">
@@ -277,6 +301,26 @@
         JSON.stringify(shoppingCart)
       );
     }
+function addToCart(name, price) {
+  const existingItem = shoppingCart.find(
+    item => item.name === name
+  );
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    shoppingCart.push({
+      name: name,
+      price: price,
+      quantity: 1
+    });
+  }
+
+  saveCart();
+  renderCart();
+
+  alert(name + ' added to your cart!');
+}
 
     function toggleCart() {
       document.getElementById('cartPanel')
